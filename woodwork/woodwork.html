@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handcrafted Woodworks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">Handcrafted Woodworks</div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span class="burger-icon">&#9776;</span>
+            </button>
+            <div class="menu" id="menu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <img src="https://public.readdy.ai/ai/img_res/d836d6ff0a1ff191cb28bb775152b4fa.jpg" alt="Woodwork Background" class="home-image">
+        <div class="home-overlay">
+            <h1>Handcrafted Woodworks</h1>
+            <p>Creating timeless pieces with passion</p>
+            <button class="cta-button">View Portfolio</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <img src="https://public.readdy.ai/ai/img_res/d69d5894c550b121e23e7b4cfa752122.jpg" alt="About Us Image" class="about-image">
+            <p>With over 15 years of experience, we bring unparalleled craftsmanship to every project.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <h2>Our Portfolio</h2>
+        <div class="portfolio-grid">
+            <img src="https://public.readdy.ai/ai/img_res/72805117f25d7832d369b85006390e09.jpg" alt="Portfolio 1">
+            <img src="https://public.readdy.ai/ai/img_res/3b6ae92b3389ec81f1e68e25f48a597e.jpg" alt="Portfolio 2">
+            <img src="https://public.readdy.ai/ai/img_res/09a0e5c39672c517d24b8e8312d4b18a.jpg" alt="Portfolio 3">
+            <img src="https://public.readdy.ai/ai/img_res/9b5d9a4f9e9d05a5b791ebb1089ec7bf.jpg" alt="Portfolio 4">
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonial-section">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-card">
+            <p class="testimonial-text">"Exceptional craftsmanship and attention to detail. The dining table they created for us is absolutely stunning!"</p>
+            <div class="testimonial-author">
+                <h3>Emily Thompson</h3>
+                <p>Interior Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-column">
+                <h3>Custom Furniture</h3>
+                <ul class="service-list">
+                    <li>Bespoke pieces tailored to your needs</li>
+                    <li>Restoration services</li>
+                    <li>Bring old pieces back to life</li>
+                </ul>
+            </div>
+            <div class="service-column">
+                <h3>Epoxy Tables</h3>
+                <ul class="service-list">
+                    <li>Modern meets traditional designs</li>
+                    <li>Professional installation service</li>
+                    <li>Custom finishing options</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <p id="formMessage"></p>
+            </form>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Handcrafted Woodworks. All Rights Reserved.</p>
+    </footer>
+    <style>/* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #FDFBF9;
+            color: #333;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: #8B4513;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .menu a:hover {
+            color: #8B4513;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #8B4513;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            background-color: #F5DEB3;
+        }
+        
+        /* Home Section */
+        .home-section {
+            position: relative;
+            height: 400px;
+            margin-top: 60px;
+        }
+        
+        .home-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .home-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .home-overlay h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        .home-overlay p {
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-button {
+            background-color: #8B4513;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #6b3510;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .about-content p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .portfolio-grid img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Testimonials Section */
+        .testimonial-section {
+            padding: 4rem 2rem;
+            background-color: #F5DEB3;
+            text-align: center;
+        }
+        
+        .testimonial-card {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 4rem 2rem;
+            background-color: #FDFBF9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-column {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-column h3 {
+            font-family: 'Playfair Display', serif;
+            color: #8B4513;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-list li::before {
+            content: "▸";
+            color: #8B4513;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background-color: #F5DEB3;
+            text-align: center;
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        
+        .contact-form button {
+            background-color: #8B4513;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: #6b3510;
+        }
+        
+        .social-media {
+            text-align: left;
+        }
+        
+        .social-media h3 {
+            font-family: 'Playfair Display', serif;
+            color: #8B4513;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            color: #8B4513;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: #6b3510;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+        
+            .menu-toggle {
+                display: block;
+            }
+        
+            .mobile-menu {
+                display: none;
+            }
+        
+            .mobile-menu.active {
+                display: flex;
+            }
+        
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }</style>
+    <script >// Toggle Mobile Menu
+        function toggleMenu() {
+            const mobileMenu = document.getElementById("mobileMenu");
+            mobileMenu.classList.toggle("active");
+        }
+        
+        // Contact Form Validation
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const formMessage = document.getElementById("formMessage");
+        
+            if (name === "" || email === "" || message === "") {
+                formMessage.textContent = "Please fill out all fields.";
+                formMessage.style.color = "red";
+            } else {
+                formMessage.textContent = "Message sent successfully!";
+                formMessage.style.color = "green";
+                document.getElementById("contactForm").reset();
+            }
+        });</script>
+</body>
+</html>

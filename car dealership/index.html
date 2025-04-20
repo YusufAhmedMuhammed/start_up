@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auto Dealership</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-family: 'Pacifico', cursive;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        /* Hamburger Menu */
+        .menu-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .hamburger,
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #3b82f6;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger::before {
+            transform: translateY(-6px);
+        }
+        
+        .hamburger::after {
+            transform: translateY(4px);
+        }
+        
+        .menu-toggle.active .hamburger {
+            background-color: transparent;
+        }
+        
+        .menu-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+        }
+        
+        .menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+        
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            z-index: 100;
+            padding: 70px 20px 20px;
+            overflow-y: auto;
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+        
+        .nav-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #1e293b;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .nav-menu a.active {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-weight: 500;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Notification Button */
+        .notification-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 8px;
+            height: 8px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        /* Main Content */
+        main {
+            padding-top: 56px;
+            padding-bottom: 80px;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            padding: 12px 16px;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            background-color: #f1f5f9;
+            border-radius: 9999px;
+            border: none;
+            font-size: 0.875rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 16px;
+        }
+        
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .view-all {
+            color: #3b82f6;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        /* Featured Vehicles */
+        .carousel-container {
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-left: -16px;
+            margin-right: -16px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        
+        .carousel {
+            display: flex;
+            gap: 16px;
+            min-width: max-content;
+        }
+        
+        .featured-car-card {
+            width: 288px;
+            height: 176px;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .featured-car-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+        
+        .featured-car-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .car-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 16px;
+            color: white;
+        }
+        
+        .car-details h3 {
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .car-price {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+        
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .category-card {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        
+        .category-card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 8px;
+            overflow: hidden;
+        }
+        
+        .category-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .category-name {
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Special Offers */
+        .offer-card {
+            border-radius: 8px;
+            padding: 16px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+        }
+        
+        .offer-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #f59e0b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 9999px;
+            margin-bottom: 8px;
+        }
+        
+        .offer-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .offer-description {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .offer-button {
+            background-color: white;
+            color: #3b82f6;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .offer-image {
+            width: 96px;
+            height: 96px;
+            margin-left: 8px;
+            overflow: hidden;
+        }
+        
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Services */
+        .services-container {
+            overflow-x: auto;
+            margin-left: -16px;
+            margin-right: -16px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        
+        .services-list {
+            display: flex;
+            gap: 16px;
+            min-width: max-content;
+        }
+        
+        .service-card {
+            width: 160px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            font-size: 1.25rem;
+        }
+        
+        .service-name {
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+        }
+        
+        .service-description {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        /* Reviews */
+        .review-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin-bottom: 12px;
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            background-color: #e2e8f0;
+            overflow: hidden;
+            margin-right: 12px;
+        }
+        
+        .reviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reviewer-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .review-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            display: flex;
+        }
+        
+        .star {
+            color: #f59e0b;
+            font-size: 0.75rem;
+        }
+        
+        .review-date {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-left: 4px;
+        }
+        
+        .review-text {
+            font-size: 0.875rem;
+            color: #475569;
+        }
+        
+        /* Location */
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 192px;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .map-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #3b82f6;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .location-info {
+            margin-top: 12px;
+        }
+        
+        .location-info p {
+            font-size: 0.875rem;
+            margin: 4px 0;
+        }
+        
+        .info-label {
+            font-weight: 500;
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+            z-index: 100;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            height: 64px;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .nav-item.active {
+            color: #3b82f6;
+        }
+        
+        .nav-item.inactive {
+            color: #64748b;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+        
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            right: 16px;
+            bottom: 80px;
+            z-index: 100;
+        }
+        
+        .fab-button {
+            width: 56px;
+            height: 56px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Utility Classes */
+        .bg-white {
+            background-color: white;
+        }
+        
+        .bg-primary-gradient {
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+        }
+        
+        .bg-secondary-gradient {
+            background: linear-gradient(to right, #f59e0b, #d97706);
+        }
+        
+        .mb-3 {
+            margin-bottom: 12px;
+        }
+        
+        .mt-3 {
+            margin-top: 12px;
+        }
+        
+        .mt-4 {
+            margin-top: 16px;
+        }
+        
+        /* Font Faces */
+        @font-face {
+            font-family: 'Pacifico';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hiA.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2') format('woff2');
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="menu-toggle" id="menuToggle">
+            <span class="hamburger"></span>
+        </div>
+        <a href="#" class="logo">PremiumAuto</a>
+        <div class="notification-btn">
+            <span class="ri-notification-3-line"></span>
+            <span class="notification-badge"></span>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">New Vehicles</a></li>
+            <li><a href="#">Used Vehicles</a></li>
+            <li><a href="#">Finance</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Saved Vehicles</a></li>
+            <li><a href="#">Appointments</a></li>
+        </ul>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search for vehicles" class="search-input">
+                <div class="search-icon">🔍</div>
+            </div>
+        </div>
+
+        <!-- Featured Vehicles Carousel -->
+        <section class="section">
+            <div class="flex-between">
+                <h2 class="section-title">Featured Vehicles</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="featured-car-card">
+                        <img src="https://readdy.ai/api/search-image?query=Luxury%20black%20Mercedes-Benz%20S-Class%20sedan%2C%20front%20three-quarter%20view%2C%20professional%20automotive%20photography%2C%20showroom%20lighting%2C%20detailed%20exterior%2C%20premium%20wheels%2C%20elegant%20design%2C%20high-end%20luxury%20car%2C%20isolated%20against%20neutral%20background%2C%20dramatic%20lighting&width=288&height=176&seq=1&orientation=landscape" alt="Mercedes S-Class">
+                        <div class="car-details">
+                            <h3>Mercedes-Benz S-Class</h3>
+                            <div class="car-price">
+                                <span>2025</span>
+                                <span>$94,250</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-car-card">
+                        <img src="https://readdy.ai/api/search-image?query=BMW%20X5%20SUV%2C%20modern%20luxury%20vehicle%2C%20front%20angle%20view%2C%20professional%20automotive%20photography%2C%20showroom%20lighting%2C%20detailed%20exterior%2C%20premium%20wheels%2C%20elegant%20design%2C%20high-end%20luxury%20SUV%2C%20isolated%20against%20neutral%20background%2C%20dramatic%20lighting&width=288&height=176&seq=2&orientation=landscape" alt="BMW X5">
+                        <div class="car-details">
+                            <h3>BMW X5 xDrive40i</h3>
+                            <div class="car-price">
+                                <span>2025</span>
+                                <span>$68,500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-car-card">
+                        <img src="https://readdy.ai/api/search-image?query=Tesla%20Model%20Y%2C%20electric%20SUV%2C%20front%20three-quarter%20view%2C%20professional%20automotive%20photography%2C%20showroom%20lighting%2C%20detailed%20exterior%2C%20premium%20wheels%2C%20modern%20design%2C%20high-tech%20vehicle%2C%20isolated%20against%20neutral%20background%2C%20dramatic%20lighting&width=288&height=176&seq=3&orientation=landscape" alt="Tesla Model Y">
+                        <div class="car-details">
+                            <h3>Tesla Model Y</h3>
+                            <div class="car-price">
+                                <span>2025</span>
+                                <span>$52,990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vehicle Categories -->
+        <section class="section bg-white">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20New%20modern%20car%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=4&orientation=squarish" alt="New Cars">
+                    </div>
+                    <p class="category-name">New Cars</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Used%20car%20with%20price%20tag%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=5&orientation=squarish" alt="Used Cars">
+                    </div>
+                    <p class="category-name">Used Cars</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20SUV%20vehicle%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=6&orientation=squarish" alt="SUVs">
+                    </div>
+                    <p class="category-name">SUVs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Luxury%20sports%20car%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=7&orientation=squarish" alt="Luxury">
+                    </div>
+                    <p class="category-name">Luxury</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Electric%20vehicle%20with%20charging%20plug%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=8&orientation=squarish" alt="Electric">
+                    </div>
+                    <p class="category-name">Electric</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Hybrid%20car%20with%20eco%20leaf%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=64&height=64&seq=9&orientation=squarish" alt="Hybrid">
+                    </div>
+                    <p class="category-name">Hybrid</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section class="section">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="offer-card bg-primary-gradient">
+                <div class="flex">
+                    <div class="flex-1">
+                        <span class="offer-tag">Limited Time</span>
+                        <h3 class="offer-title">Spring Sales Event</h3>
+                        <p class="offer-description">0% APR financing for 72 months on select models</p>
+                        <button class="offer-button">View Offers</button>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://readdy.ai/api/search-image?query=Promotional%20badge%20with%20percentage%20discount%20symbol%2C%203D%20rendering%2C%20vibrant%20colors%2C%20professional%20design%2C%20marketing%20material%2C%20special%20offer%20icon%2C%20sales%20event%20graphics%2C%20isolated%20on%20transparent%20background%2C%20high%20detail%20quality&width=96&height=96&seq=10&orientation=squarish" alt="Special Offer">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card bg-secondary-gradient">
+                <div class="flex">
+                    <div class="flex-1">
+                        <span class="offer-tag" style="background-color: #3b82f6;">New Arrivals</span>
+                        <h3 class="offer-title">Trade-In Bonus</h3>
+                        <p class="offer-description">Get up to $3,000 extra on your trade-in value</p>
+                        <button class="offer-button" style="color: #f59e0b;">Learn More</button>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://readdy.ai/api/search-image?query=Car%20keys%20with%20money%20and%20contract%2C%20trade-in%20concept%2C%203D%20rendering%2C%20professional%20design%2C%20marketing%20material%2C%20trade%20value%20icon%2C%20automotive%20dealership%20graphics%2C%20isolated%20on%20transparent%20background%2C%20high%20detail%20quality&width=96&height=96&seq=11&orientation=squarish" alt="Trade-In Offer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Showcase -->
+        <section class="section bg-white">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-container">
+                <div class="services-list">
+                    <div class="service-card">
+                        <div class="service-icon">🛠</div>
+                        <h3 class="service-name">Maintenance</h3>
+                        <p class="service-description">Expert service for all brands</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💳</div>
+                        <h3 class="service-name">Financing</h3>
+                        <p class="service-description">Competitive rates & options</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛡</div>
+                        <h3 class="service-name">Insurance</h3>
+                        <p class="service-description">Protect your investment</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔄</div>
+                        <h3 class="service-name">Trade-In</h3>
+                        <p class="service-description">Get the best value</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Reviews -->
+        <section class="section">
+            <div class="flex-between">
+                <h2 class="section-title">Customer Reviews</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div>
+                <div class="review-card">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20smiling%20middle-aged%20man%20with%20short%20brown%20hair%20wearing%20a%20casual%20button-up%20shirt%2C%20neutral%20background%2C%20natural%20lighting%2C%20friendly%20expression%2C%20high%20quality%20portrait&width=40&height=40&seq=12&orientation=squarish" alt="Customer">
+                        </div>
+                        <div>
+                            <h3 class="reviewer-name">Michael Thompson</h3>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                                <span class="review-date">April 15, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Exceptional service from start to finish. James was knowledgeable and made the buying process smooth. Very happy with my new BMW X3!"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20smiling%20young%20woman%20with%20long%20dark%20hair%20wearing%20a%20professional%20blouse%2C%20neutral%20background%2C%20natural%20lighting%2C%20friendly%20expression%2C%20high%20quality%20portrait&width=40&height=40&seq=13&orientation=squarish" alt="Customer">
+                        </div>
+                        <div>
+                            <h3 class="reviewer-name">Rebecca Wilson</h3>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">½</span>
+                                </div>
+                                <span class="review-date">April 10, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The financing options were great and the staff was patient with all my questions. Love my new Tesla Model Y and the entire experience!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map -->
+        <section class="section bg-white">
+            <h2 class="section-title">Visit Our Dealership</h2>
+            <div class="map-container">
+                <img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="Dealership Location">
+                <button class="map-button">📍 Get Directions</button>
+            </div>
+            <div class="location-info">
+                <p><span class="info-label">Address:</span> 1234 Auto Boulevard, Cartown, CT 90210</p>
+                <p class="mt-3"><span class="info-label">Hours:</span> Mon-Sat: 9AM-8PM, Sun: 10AM-6PM</p>
+                <p class="mt-3"><span class="info-label">Phone:</span> (555) 123-4567</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-grid">
+            <a href="#" class="nav-item active">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Home</div>
+            </a>
+            <a href="#" class="nav-item inactive">
+                <div class="nav-icon">🚗</div>
+                <div class="nav-label">Inventory</div>
+            </a>
+            <a href="#" class="nav-item inactive">
+                <div class="nav-icon">📅</div>
+                <div class="nav-label">Test Drive</div>
+            </a>
+            <a href="#" class="nav-item inactive">
+                <div class="nav-icon">👤</div>
+                <div class="nav-label">Account</div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Floating Action Button -->
+    <div class="fab">
+        <button class="fab-button">💬</button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            this.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                
+                // Update active state
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Bottom nav active state
+        const bottomNavItems = document.querySelectorAll('.nav-item');
+        bottomNavItems.forEach(item => {
+            item.addEventListener('click', function() {
+                bottomNavItems.forEach(i => i.classList.replace('active', 'inactive'));
+                this.classList.replace('inactive', 'active');
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                alert('Searching for: ' + this.value);
+            }
+        });
+        
+        // Category card clicks
+        const categoryCards = document.querySelectorAll('.category-card');
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.querySelector('.category-name').textContent;
+                alert('Category selected: ' + category);
+            });
+        });
+        
+        // Featured car clicks
+        const featuredCars = document.querySelectorAll('.featured-car-card');
+        featuredCars.forEach(car => {
+            car.addEventListener('click', function() {
+                const carName = this.querySelector('h3').textContent;
+                alert('Car selected: ' + carName);
+            });
+        });
+        
+        // Service card clicks
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(service => {
+            service.addEventListener('click', function() {
+                const serviceName = this.querySelector('.service-name').textContent;
+                alert('Service selected: ' + serviceName);
+            });
+        });
+        
+        // Offer buttons
+        const offerButtons = document.querySelectorAll('.offer-button');
+        offerButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const offerTitle = this.closest('.offer-card').querySelector('.offer-title').textContent;
+                alert('Offer selected: ' + offerTitle);
+            });
+        });
+        
+        // Map button
+        const mapButton = document.querySelector('.map-button');
+        mapButton.addEventListener('click', function() {
+            alert('Opening directions to dealership');
+        });
+        
+        // FAB button
+        const fabButton = document.querySelector('.fab-button');
+        fabButton.addEventListener('click', function() {
+            alert('Opening chat support');
+        });
+        
+        // Notification button
+        const notificationBtn = document.querySelector('.notification-btn');
+        notificationBtn.addEventListener('click', function() {
+            alert('Showing notifications');
+        });
+    </script>
+</body>
+</html>

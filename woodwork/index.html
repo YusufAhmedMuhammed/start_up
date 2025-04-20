@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>Handcrafted Woodworks</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#4A3C31',
+secondary: '#D4C5B9'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.hide-scroll-bar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+display: none;
+}
+</style>
+</head>
+<body class="w-[375px] min-h-[762px] mx-auto bg-white text-gray-800">
+<nav class="fixed top-0 w-full bg-white z-50 border-b">
+<div class="flex items-center justify-between px-4 h-14">
+<div class="font-['Pacifico'] text-xl text-primary">logo</div>
+<button id="menuBtn" class="w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</nav>
+<main class="mt-14 mb-16 px-4">
+<section class="relative h-[200px] rounded-lg overflow-hidden mb-8">
+<img src="https://public.readdy.ai/ai/img_res/dae6f163ec354b66d467c4f33f2c35de.jpg"
+class="w-full h-full object-cover" alt="Hero Image">
+<div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white">
+<h1 class="text-2xl font-semibold mb-2">Handcrafted Woodworks</h1>
+<p class="text-sm mb-4">Crafting Excellence Since 1995</p>
+<a href="https://readdy.ai/home/1916d5e2-dbdf-4d80-8308-ef5ac2a645f5/8922ce3a-7adf-482a-a63f-c0c5113a0ace" data-readdy="true">
+<button class="bg-primary text-white px-6 py-2 !rounded-button">View Portfolio</button>
+</a>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-xl font-semibold mb-4">Our Services</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-secondary/10 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-tools-fill text-2xl text-primary"></i>
+</div>
+<h3 class="font-medium mb-1">Custom Furniture</h3>
+<p class="text-sm text-gray-600">Bespoke pieces tailored to your needs</p>
+</div>
+<div class="bg-secondary/10 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-paint-fill text-2xl text-primary"></i>
+</div>
+<h3 class="font-medium mb-1">Restoration</h3>
+<p class="text-sm text-gray-600">Bring old pieces back to life</p>
+</div>
+<div class="bg-secondary/10 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-table-fill text-2xl text-primary"></i>
+</div>
+<h3 class="font-medium mb-1">Epoxy Tables</h3>
+<p class="text-sm text-gray-600">Modern meets traditional</p>
+</div>
+<div class="bg-secondary/10 p-4 rounded-lg">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-home-gear-fill text-2xl text-primary"></i>
+</div>
+<h3 class="font-medium mb-1">Installation</h3>
+<p class="text-sm text-gray-600">Professional setup service</p>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-xl font-semibold mb-4">Recent Works</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/f02e2783957f8432adbc3368125cfc47.jpg"
+class="w-full h-40 object-cover" alt="Work 1">
+</div>
+<div class="rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/8a16a686de85e7cc6a4efa9ffe21d06b.jpg"
+class="w-full h-40 object-cover" alt="Work 2">
+</div>
+<div class="rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/6cefed885cd575de45cb677becf212bb.jpg"
+class="w-full h-40 object-cover" alt="Work 3">
+</div>
+<div class="rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/8068ef38a996c609d8e9461640cd8742.jpg"
+class="w-full h-40 object-cover" alt="Work 4">
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-xl font-semibold mb-4">Testimonials</h2>
+<div class="overflow-x-auto hide-scroll-bar">
+<div class="flex gap-4 pb-4">
+<div class="flex-none w-[280px] bg-secondary/10 p-4 rounded-lg">
+<p class="text-sm mb-4">"Exceptional craftsmanship and attention to detail. The dining table they created for us is absolutely stunning!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-200 mr-3"></div>
+<div>
+<p class="font-medium">Emily Thompson</p>
+<p class="text-xs text-gray-600">Interior Designer</p>
+</div>
+</div>
+</div>
+<div class="flex-none w-[280px] bg-secondary/10 p-4 rounded-lg">
+<p class="text-sm mb-4">"Their restoration work is incredible. They brought my grandmother's antique cabinet back to its original glory."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-200 mr-3"></div>
+<div>
+<p class="font-medium">Michael Anderson</p>
+<p class="text-xs text-gray-600">Art Collector</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-xl font-semibold mb-4">Contact Us</h2>
+<form class="space-y-4">
+<div>
+<label class="block text-sm mb-1">Name</label>
+<input type="text" class="w-full px-4 py-2 bg-secondary/10 rounded-lg" required>
+</div>
+<div>
+<label class="block text-sm mb-1">Email</label>
+<input type="email" class="w-full px-4 py-2 bg-secondary/10 rounded-lg" required>
+</div>
+<div>
+<label class="block text-sm mb-1">Message</label>
+<textarea class="w-full px-4 py-2 bg-secondary/10 rounded-lg h-24" required></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button">Send Message</button>
+</form>
+</section>
+</main>
+<footer class="fixed bottom-0 w-full bg-white border-t">
+<div class="flex items-center justify-around h-16">
+<a href="#" class="flex flex-col items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-line text-primary"></i>
+</div>
+<span class="text-xs mt-1">Home</span>
+</a>
+<a href="#" class="flex flex-col items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-gallery-line"></i>
+</div>
+<span class="text-xs mt-1">Gallery</span>
+</a>
+<a href="#" class="flex flex-col items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-message-2-line"></i>
+</div>
+<span class="text-xs mt-1">Contact</span>
+</a>
+<a href="#" class="flex flex-col items-center">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-xs mt-1">Profile</span>
+</a>
+</div>
+</footer>
+<div id="menu" class="fixed inset-0 bg-black/50 z-50 hidden">
+<div class="bg-white w-64 h-full ml-auto p-4">
+<div class="flex justify-between items-center mb-8">
+<div class="font-['Pacifico'] text-xl text-primary">logo</div>
+<button id="closeMenu" class="w-8 h-8 flex items-center justify-center">
+<i class="ri-close-line text-xl"></i>
+</button>
+</div>
+
+</div>
+</div>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeMenu = document.getElementById('closeMenu');
+const menu = document.getElementById('menu');
+menuBtn.addEventListener('click', () => {
+menu.classList.remove('hidden');
+});
+closeMenu.addEventListener('click', () => {
+menu.classList.add('hidden');
+});
+menu.addEventListener('click', (e) => {
+if (e.target === menu) {
+menu.classList.add('hidden');
+}
+});
+</script>
+</body>
+</html>

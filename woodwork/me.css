@@ -1,0 +1,149 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: url('woodwork-bg.jpg') no-repeat center center/cover;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 22px;
+}
+
+.hero p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.btn {
+    background: #5C4033;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Services */
+.services {
+    text-align: center;
+    padding: 20px;
+}
+
+.services h2 {
+    margin-bottom: 10px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.service-card {
+    background: #F8F6F2;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Recent Works */
+.recent-works {
+    text-align: center;
+    padding: 20px;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.works-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Testimonials */
+.testimonials {
+    text-align: center;
+    padding: 20px;
+}
+
+.testimonial-card {
+    background: #F8F6F2;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+}
+
+.contact .btn {
+    width: 100%;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .service-grid, .works-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

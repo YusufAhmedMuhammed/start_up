@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumos Tech - Ethiopian Digital Solutions</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #FDFBF9;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+        }
+        
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.25rem;
+            color: #1A5D1A;
+            text-decoration: none;
+        }
+        
+        .desktop-nav {
+            display: none;
+        }
+        
+        .mobile-menu-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            padding: 0 16px 16px;
+            background-color: white;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: #1e293b;
+            text-decoration: none;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .mobile-menu a:hover {
+            color: #1A5D1A;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 80px;
+            padding-bottom: 48px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            padding: 0 16px;
+        }
+        
+        .rotating-text {
+            font-size: 1.25rem;
+            color: #1A5D1A;
+            font-weight: 500;
+            margin-bottom: 24px;
+            height: 28px;
+        }
+        
+        .rotating-text span {
+            display: none;
+        }
+        
+        .rotating-text span.active {
+            display: inline;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            margin: 0 auto 24px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #1A5D1A;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #144d14;
+        }
+        
+        .btn-outline {
+            border: 1px solid #1A5D1A;
+            color: #1A5D1A;
+        }
+        
+        .btn-outline:hover {
+            background-color: #1A5D1A;
+            color: white;
+        }
+        
+        /* Projects Section */
+        .section {
+            padding: 48px 16px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .section-subtitle {
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f5f9;
+            padding: 4px;
+            border-radius: 9999px;
+            margin-bottom: 24px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        
+        .filter-btn.active {
+            background-color: #1A5D1A;
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 16px;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .project-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .project-badge {
+            background-color: #dcfce7;
+            color: #166534;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .project-tag {
+            background-color: #f1f5f9;
+            color: #64748b;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+        
+        .project-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+        
+        .project-link {
+            color: #1A5D1A;
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .skill-item {
+            margin-bottom: 24px;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+        }
+        
+        .skill-percent {
+            color: #64748b;
+        }
+        
+        .skill-meter {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-meter-fill {
+            height: 100%;
+            background-color: #1A5D1A;
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+        
+        .tools-title {
+            font-weight: 500;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        
+        .tool-name {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-align: center;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(26, 93, 26, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: #1A5D1A;
+            font-size: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        
+        .service-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .service-feature-icon {
+            color: #1A5D1A;
+            margin-right: 8px;
+            font-size: 0.875rem;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 16px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-name {
+            font-weight: 500;
+        }
+        
+        .testimonial-role {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-rating {
+            display: flex;
+            color: #F0A830;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            display: block;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #1A5D1A;
+            box-shadow: 0 0 0 2px rgba(26, 93, 26, 0.2);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-input {
+            margin-right: 8px;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .whatsapp-icon {
+            background-color: #25D366;
+            animation: pulse 2s infinite;
+        }
+        
+        .email-icon {
+            background-color: #4285F4;
+        }
+        
+        .location-icon {
+            background-color: #EA4335;
+        }
+        
+        .contact-method-text {
+            flex: 1;
+        }
+        
+        .contact-method-name {
+            font-weight: 500;
+            color: #1e293b;
+        }
+        
+        .contact-method-detail {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .contact-copy {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            cursor: pointer;
+        }
+        
+        .contact-credentials {
+            margin-top: 32px;
+        }
+        
+        .credential-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .credential-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: #1A5D1A;
+        }
+        
+        .credential-text {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* Tab Bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        .tab-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            height: 64px;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .tab-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .tab-label {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+        
+        .tab-active {
+            color: #1A5D1A;
+        }
+        
+        .tab-inactive {
+            color: #64748b;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            display: none;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: #166534;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .modal-text {
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+        
+        /* Circuit Background */
+        .circuit-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=subtle%2520light%2520circuit%2520board%2520pattern%2520on%2520white%2520background%2C%2520very%2520light%2520gray%2520lines%2C%2520tech%2520pattern%2C%2520minimal%2C%2520clean%2C%2520professional&width=375&height=762&seq=1&orientation=portrait');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* Font Faces */
+        @font-face {
+            font-family: 'Pacifico';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2') format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2') format('woff2');
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .contact-container {
+                flex-direction: row;
+            }
+            
+            .contact-form {
+                flex: 1;
+            }
+            
+            .contact-info {
+                flex: 0 0 300px;
+            }
+            
+            .desktop-nav {
+                display: flex;
+                gap: 24px;
+            }
+            
+            .desktop-nav a {
+                color: #1e293b;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            
+            .desktop-nav a:hover {
+                color: #1A5D1A;
+            }
+            
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="circuit-bg">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Yusuf Ahmed</a>
+            
+            <div class="desktop-nav">
+                <a href="#work">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" id="menuToggle">
+                <span>☰</span>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#work">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Building Digital Solutions for Ethiopian Businesses</h1>
+        <div class="rotating-text">
+            <span class="active">Web Development</span>
+            <span>Mobile Apps</span>
+            <span>Cybersecurity</span>
+            <span>UI/UX Design</span>
+        </div>
+        
+        <div class="hero-image">
+            <img src="https://readdy.ai/api/search-image?query=professional%2520mockup%2520of%2520car%2520dealership%2520website%2520on%2520laptop%2520and%2520mobile%2520phone%2C%2520Ethiopian%2520style%2C%2520modern%2520design%2C%2520high%2520quality%2C%2520photorealistic&width=375&height=250&seq=2&orientation=landscape" 
+                 alt="Project Mockup">
+        </div>
+        
+        <div class="hero-buttons">
+            <a href="#work" class="btn btn-primary">View My Projects</a>
+            <a href="https://wa.me/251912345678" class="btn btn-outline">Get Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="work" class="section bg-white">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Solutions that drive results for Ethiopian businesses</p>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="app">App</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="https://readdy.ai/api/search-image?query=modern%2520car%2520dealership%2520website%2520interface%2C%2520Ethiopian%2520style%2C%2520clean%2520design%2C%2520showing%2520multiple%2520cars%2C%2520professional%2520web%2520design&width=375&height=200&seq=3&orientation=landscape" 
+                         alt="Addis Auto Hub">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Addis Auto Hub</h3>
+                        <span class="project-badge">+65% Inquiries</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Web Dev</span>
+                        <span class="project-tag">Telebirr Integration</span>
+                    </div>
+                    <p class="project-description">A modern car dealership platform with integrated payment system for Ethiopian car dealers.</p>
+                    <a href="#" class="project-link">
+                        View Case Study <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="https://readdy.ai/api/search-image?query=school%2520management%2520dashboard%2520interface%2C%2520Ethiopian%2520calendar%2520integration%2C%2520clean%2520UI%2C%2520data%2520visualization%2C%2520professional%2520web%2520application&width=375&height=200&seq=4&orientation=landscape" 
+                         alt="School Management System">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">School Management System</h3>
+                        <span class="project-badge">-30 Admin Hours</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Full-Stack</span>
+                        <span class="project-tag">Amharic Support</span>
+                    </div>
+                    <p class="project-description">Complete school management solution with Ethiopian calendar integration and multilingual support.</p>
+                    <a href="#" class="project-link">
+                        View Case Study <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="security">
+                <div class="project-image">
+                    <img src="https://readdy.ai/api/search-image?query=cybersecurity%2520dashboard%2520with%2520social%2520media%2520protection%2C%2520shield%2520icons%2C%2520security%2520metrics%2C%2520professional%2520interface%2C%2520dark%2520theme&width=375&height=200&seq=5&orientation=landscape" 
+                         alt="Social Media Security">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Social Media Security</h3>
+                        <span class="project-badge">0 Breaches</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Cybersecurity</span>
+                        <span class="project-tag">Monitoring</span>
+                    </div>
+                    <p class="project-description">Comprehensive social media security solution for businesses to prevent unauthorized access.</p>
+                    <a href="#" class="project-link">
+                        View Case Study <span>→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="app">
+                <div class="project-image">
+                    <img src="https://readdy.ai/api/search-image?query=mobile%2520app%2520for%2520woodcraft%2520business%2C%2520Ethiopian%2520style%2C%2520product%2520showcase%2C%2520e-commerce%2C%2520professional%2520UI%2520design&width=375&height=200&seq=6&orientation=landscape" 
+                         alt="Woodcraft Marketplace">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Woodcraft Marketplace</h3>
+                        <span class="project-badge">+120% Sales</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">App Dev</span>
+                        <span class="project-tag">E-commerce</span>
+                    </div>
+                    <p class="project-description">Mobile marketplace for Ethiopian artisans to showcase and sell traditional woodcraft products.</p>
+                    <a href="#" class="project-link">
+                        View Case Study <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Expertise to bring your digital vision to life</p>
+        
+        <div class="skills-container">
+            <!-- Web Development -->
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Web Development</span>
+                    <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" data-width="95%"></div>
+                </div>
+            </div>
+            
+            <!-- App Development -->
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">App Development</span>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" data-width="85%"></div>
+                </div>
+            </div>
+            
+            <!-- Cybersecurity -->
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Cybersecurity</span>
+                    <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" data-width="90%"></div>
+                </div>
+            </div>
+            
+            <!-- UI/UX -->
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">UI/UX Design</span>
+                    <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" data-width="80%"></div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <h3 class="tools-title">Tools & Technologies</h3>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">⚛️</div>
+                    <span class="tool-name">React</span>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📱</div>
+                    <span class="tool-name">Flutter</span>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🖥️</div>
+                    <span class="tool-name">Kali Linux</span>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">✏️</div>
+                    <span class="tool-name">Figma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-white">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">Tailored digital solutions for Ethiopian businesses</p>
+        
+        <div class="services-grid">
+            <!-- Web Development -->
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3 class="service-title">Web Development</h3>
+                <p class="service-description">Custom websites and web applications optimized for Ethiopian businesses with Telebirr payment integration.</p>
+                <ul class="service-features">
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Business websites</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>E-commerce with Telebirr</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Amharic localization</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- App Development -->
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3 class="service-title">App Development</h3>
+                <p class="service-description">Native and cross-platform mobile applications designed for Ethiopian market with offline-first functionality.</p>
+                <ul class="service-features">
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Android & iOS apps</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Offline-first functionality</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Low data consumption</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Cybersecurity -->
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3 class="service-title">Cybersecurity</h3>
+                <p class="service-description">Comprehensive security solutions to protect Ethiopian businesses from digital threats and data breaches.</p>
+                <ul class="service-features">
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Social media protection</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>GDPR compliance</span>
+                    </li>
+                    <li class="service-feature">
+                        <span class="service-feature-icon">✓</span>
+                        <span>Security training</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <h2 class="section-title">Client Testimonials</h2>
+        <p class="section-subtitle">What Ethiopian businesses say about our work</p>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                    <img src="https://readdy.ai/api/search-image?query=professional%2520Ethiopian%2520business%2520man%2C%2520cafe%2520owner%2C%2520portrait%2C%2520headshot%2C%2520professional%2520attire&width=100&height=100&seq=7&orientation=squarish" 
+                         alt="Ato Daniel">
+                </div>
+                <div>
+                    <h3 class="testimonial-name">Ato Daniel</h3>
+                    <p class="testimonial-role">Addis Café Owner</p>
+                </div>
+            </div>
+            <p class="testimonial-text">"Lumos Tech doubled our online sales! Their website design with Telebirr integration made ordering so easy for our customers. Highly recommended for any Ethiopian business."</p>
+            <div class="testimonial-rating">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-white">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Let's discuss your digital needs</p>
+        
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3 class="contact-info-title">Reach Out Directly</h3>
+                
+                <a href="https://wa.me/251966496454" class="contact-method">
+                    <div class="contact-icon whatsapp-icon">💬</div>
+                    <div class="contact-method-text">
+                        <p class="contact-method-name">WhatsApp</p>
+                        <p class="contact-method-detail">+251 96 649 6454</p>
+                    </div>
+                </a>
+                
+                <div class="contact-method" id="copyEmail">
+                    <div class="contact-icon email-icon">✉️</div>
+                    <div class="contact-method-text">
+                        <p class="contact-method-name">Email</p>
+                        <p class="contact-method-detail">yusufahmedmuhammed67@gmail.com</p>
+                    </div>
+                    <div class="contact-copy">📋</div>
+                </div>
+                
+                <a href="https://maps.google.com/?q=Haile+Garment,Addis+Ababa,Ethiopia" target="_blank" class="contact-method">
+                    <div class="contact-icon location-icon">📍</div>
+                    <div class="contact-method-text">
+                        <p class="contact-method-name">Location</p>
+                        <p class="contact-method-detail">Based in Haile Garment, Addis Ababa</p>
+                    </div>
+                </a>
+                
+                <div class="contact-credentials">
+                    <div class="credential-item">
+                        <div class="credential-icon">🛡️</div>
+                        <p class="credential-text">GDPR-compliant data handling</p>
+                    </div>
+                    <div class="credential-item">
+                        <div class="credential-icon">🏆</div>
+                        <p class="credential-text">Member of Addis Tech Association</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <div class="tab-grid">
+            <a href="#" class="tab-item">
+                <div class="tab-icon tab-active">🏠</div>
+                <div class="tab-label tab-active">Home</div>
+            </a>
+            <a href="#work" class="tab-item">
+                <div class="tab-icon tab-inactive">📁</div>
+                <div class="tab-label tab-inactive">Projects</div>
+            </a>
+            <a href="#services" class="tab-item">
+                <div class="tab-icon tab-inactive">🛠️</div>
+                <div class="tab-label tab-inactive">Services</div>
+            </a>
+            <a href="#contact" class="tab-item">
+                <div class="tab-icon tab-inactive">✉️</div>
+                <div class="tab-label tab-inactive">Contact</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3 class="modal-title">Message Sent!</h3>
+            <p class="modal-text">We'll respond to your inquiry within 24 hours.</p>
+            <button class="btn btn-primary" id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Rotating text animation
+        const texts = document.querySelectorAll('.rotating-text span');
+        let currentIndex = 0;
+        
+        function rotateText() {
+            texts.forEach(text => text.classList.remove('active'));
+            currentIndex = (currentIndex + 1) % texts.length;
+            texts[currentIndex].classList.add('active');
+        }
+        
+        setInterval(rotateText, 3000);
+
+        // Skill meters animation
+        const skillMeters = document.querySelectorAll('.skill-meter-fill');
+        
+        function animateSkills() {
+            skillMeters.forEach(meter => {
+                const width = meter.getAttribute('data-width');
+                meter.style.width = width;
+            });
+        }
+        
+        // Trigger animation when in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Copy email functionality
+        const copyEmailBtn = document.getElementById('copyEmail');
+        
+        copyEmailBtn.addEventListener('click', function() {
+            const email = 'hello@lumostech.et';
+            navigator.clipboard.writeText(email).then(() => {
+                const copyIcon = this.querySelector('.contact-copy');
+                copyIcon.textContent = '✓';
+                copyIcon.style.color = '#1A5D1A';
+                
+                setTimeout(() => {
+                    copyIcon.textContent = '📋';
+                    copyIcon.style.color = '#64748b';
+                }, 2000);
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success modal
+            successModal.style.display = 'flex';
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        closeModal.addEventListener('click', function() {
+            successModal.style.display = 'none';
+        });
+
+        // Tab bar navigation highlighting
+        const tabLinks = document.querySelectorAll('.tab-bar a');
+        
+        function highlightActiveTab() {
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    const sectionId = section.getAttribute('id');
+                    
+                    tabLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        
+                        if (href === `#${sectionId}` || (href === '#' && sectionId === 'home')) {
+                            // Highlight active tab
+                            link.querySelector('.tab-icon').classList.add('tab-active');
+                            link.querySelector('.tab-icon').classList.remove('tab-inactive');
+                            link.querySelector('.tab-label').classList.add('tab-active');
+                            link.querySelector('.tab-label').classList.remove('tab-inactive');
+                        } else if (href !== '#') {
+                            // Reset other tabs
+                            link.querySelector('.tab-icon').classList.remove('tab-active');
+                            link.querySelector('.tab-icon').classList.add('tab-inactive');
+                            link.querySelector('.tab-label').classList.remove('tab-active');
+                            link.querySelector('.tab-label').classList.add('tab-inactive');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightActiveTab);
+        highlightActiveTab(); // Initial check
+    </script>
+</body>
+</html>
