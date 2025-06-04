@@ -19,7 +19,7 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=["*"],  # Allow all for dev
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,6 +33,16 @@ async def root():
             "status": "healthy",
         }
     )
+
+@app.get("/about")
+async def about():
+    return {
+        "company": "LumosTech",
+        "mission": "Empowering digital transformation through innovative technology solutions.",
+        "founded": 2015,
+        "team_size": 250,
+        "offices": ["San Francisco", "London", "Singapore", "Toronto"]
+    }
 
 # Include routers
 app.include_router(contact.router, prefix="/api/v1", tags=["contact"])
