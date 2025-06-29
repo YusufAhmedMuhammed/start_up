@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - LumosTech</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+main {
+flex: 1;
+}
+.section-container {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+scroll-snap-align: start;
+}
+.section-content {
+width: 100%;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20technology%20office%20space%20with%20a%20gradient%20blue%20background%20transitioning%20to%20white%20on%20the%20left%20side.%20The%20image%20should%20show%20futuristic%20technology%20elements%20on%20the%20right%20side%20with%20glowing%20circuits%2C%20holographic%20displays%2C%20and%20subtle%20light%20effects.%20The%20left%20side%20should%20be%20clean%20and%20minimal%20with%20ample%20white%20space%20for%20text%20overlay.%20The%20transition%20between%20the%20blue%20technology%20side%20and%20white%20text%20side%20must%20be%20smooth%20and%20natural.&width=1920&height=1080&seq=hero1&orientation=landscape');
+background-position: center;
+background-size: cover;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #3b82f6;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 1.25rem;
+height: 1.25rem;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+background-color: white;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #3b82f6;
+border-color: #3b82f6;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 3rem;
+height: 1.5rem;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 1.1rem;
+width: 1.1rem;
+left: 0.2rem;
+bottom: 0.2rem;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3b82f6;
+}
+input:checked + .slider:before {
+transform: translateX(1.5rem);
+}
+</style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-gray-900 font-medium hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">About</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Services</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Case Studies</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Blog</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="hidden md:block bg-white text-primary border border-primary px-5 py-2 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Log In</button>
+<button class="bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Get Started</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full hidden" id="mobile-menu">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+<a href="#" class="text-gray-900 font-medium py-2 hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">About</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Services</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Case Studies</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Blog</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Contact</a>
+<button class="bg-white text-primary border border-primary px-5 py-2 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap w-full">Log In</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- About Hero Section -->
+<section class="bg-primary bg-opacity-5 py-20 md:py-28">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Story</h1>
+<p class="text-lg md:text-xl text-gray-700">Pioneering digital transformation through innovation, expertise, and unwavering commitment to client success since 2015.</p>
+</div>
+</div>
+</section>
+<!-- Mission & Vision -->
+<section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%20office%20environment%20showing%20diverse%20team%20members%20collaborating%20on%20technology%20projects.%20The%20scene%20should%20be%20well-lit%20with%20natural%20light%2C%20showing%20professionals%20working%20with%20multiple%20screens%20and%20engaging%20in%20discussion.%20The%20image%20should%20convey%20innovation%2C%20teamwork%2C%20and%20professional%20excellence.&width=800&height=600&seq=about1&orientation=landscape" alt="Our Mission" class="rounded-lg shadow-lg w-full">
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+<p class="text-lg text-gray-600 mb-8">To empower organizations with cutting-edge technology solutions that drive innovation, efficiency, and sustainable growth in the digital age.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-focus-3-line text-primary ri-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Innovation First</h3>
+<p class="text-gray-600">Continuously pushing boundaries to deliver groundbreaking solutions.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-team-line text-secondary ri-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Client Success</h3>
+<p class="text-gray-600">Dedicated to delivering exceptional results and long-term value.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-global-line text-purple-600 ri-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Global Impact</h3>
+<p class="text-gray-600">Creating positive change through technology across industries.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Company Values -->
+<section class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">The principles that guide our work and shape our culture.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-heart-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Integrity</h3>
+<p class="text-gray-600">We maintain the highest standards of honesty and transparency in all our interactions.</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-lightbulb-line ri-xl text-secondary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Innovation</h3>
+<p class="text-gray-600">We embrace creativity and forward-thinking to solve complex challenges.</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-team-line ri-xl text-purple-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Collaboration</h3>
+<p class="text-gray-600">We believe in the power of teamwork and diverse perspectives.</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-award-line ri-xl text-orange-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Excellence</h3>
+<p class="text-gray-600">We strive for exceptional quality in everything we do.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership Team -->
+<section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Leadership Team</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Meet the visionaries driving innovation and excellence at LumosTech.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white p-6 text-center">
+<div class="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20confident%20male%20CEO%20in%20his%2040s%20wearing%20a%20modern%20business%20suit.%20He%20should%20have%20a%20warm%2C%20approachable%20smile%20and%20be%20photographed%20against%20a%20neutral%20background.%20The%20image%20should%20convey%20leadership%20and%20trustworthiness.&width=400&height=400&seq=lead1&orientation=squarish" alt="Michael Anderson" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Michael Anderson</h3>
+<p class="text-gray-600 mb-4">Chief Executive Officer</p>
+<p class="text-gray-600 mb-6">20+ years of experience in technology leadership and digital transformation.</p>
+<div class="flex justify-center space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</a>
+</div>
+</div>
+<div class="bg-white p-6 text-center">
+<div class="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20female%20CTO%20in%20her%2030s%20with%20medium-length%20brown%20hair%2C%20wearing%20modern%20business%20attire.%20She%20should%20have%20a%20confident%20expression%20and%20be%20photographed%20against%20a%20neutral%20background.%20The%20image%20should%20convey%20technical%20expertise%20and%20leadership.&width=400&height=400&seq=lead2&orientation=squarish" alt="Dr. Jennifer Chen" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Dr. Jennifer Chen</h3>
+<p class="text-gray-600 mb-4">Chief Technology Officer</p>
+<p class="text-gray-600 mb-6">Ph.D. in Computer Science, leading our AI and innovation initiatives.</p>
+<div class="flex justify-center space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</a>
+</div>
+</div>
+<div class="bg-white p-6 text-center">
+<div class="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20male%20COO%20in%20his%20late%2030s%20with%20a%20diverse%20background%2C%20wearing%20a%20modern%20business%20suit.%20He%20should%20have%20a%20friendly%2C%20professional%20expression%20and%20be%20photographed%20against%20a%20neutral%20background.%20The%20image%20should%20convey%20operational%20expertise%20and%20leadership.&width=400&height=400&seq=lead3&orientation=squarish" alt="Robert Martinez" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Robert Martinez</h3>
+<p class="text-gray-600 mb-4">Chief Operations Officer</p>
+<p class="text-gray-600 mb-6">15+ years of experience in scaling global technology operations.</p>
+<div class="flex justify-center space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Company Stats -->
+<section class="py-16 md:py-24 bg-primary bg-opacity-5">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold text-primary mb-2">10+</div>
+<p class="text-gray-600">Years of Excellence</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold text-primary mb-2">500+</div>
+<p class="text-gray-600">Successful Projects</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold text-primary mb-2">200+</div>
+<p class="text-gray-600">Global Clients</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold text-primary mb-2">150+</div>
+<p class="text-gray-600">Tech Experts</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Presence -->
+<section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Global Presence</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Serving clients worldwide with offices in key technology hubs.</p>
+</div>
+<div class="relative h-[400px] rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="Global Presence Map" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent">
+<div class="p-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl">
+<div class="bg-white/90 p-4 rounded-lg backdrop-blur">
+<h3 class="font-semibold text-gray-900 mb-2">Americas</h3>
+<ul class="space-y-2 text-gray-600">
+<li>San Francisco (HQ)</li>
+<li>New York</li>
+<li>Toronto</li>
+</ul>
+</div>
+<div class="bg-white/90 p-4 rounded-lg backdrop-blur">
+<h3 class="font-semibold text-gray-900 mb-2">Europe & Asia</h3>
+<ul class="space-y-2 text-gray-600">
+<li>London</li>
+<li>Singapore</li>
+<li>Tokyo</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Join Our Team CTA -->
+<section class="py-16 md:py-24 bg-primary bg-opacity-10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Join Our Team</h2>
+<p class="text-lg text-gray-700 mb-8">Be part of a dynamic team that's shaping the future of technology. We're always looking for talented individuals who share our passion for innovation.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">View Open Positions</button>
+<button class="bg-white text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Learn About Culture</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Hero Section -->
+<section class="bg-primary bg-opacity-5 py-20 md:py-28">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Technology Services</h1>
+<p class="text-lg md:text-xl text-gray-700">Comprehensive technology solutions tailored to drive your business forward. We combine expertise, innovation, and industry best practices to deliver exceptional results.</p>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Custom Software Development -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-code-line ri-2x text-primary"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Custom Software Development</h2>
+<p class="text-gray-600 mb-6">Tailored software solutions designed to address your unique business challenges and requirements. Our expert team delivers:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Enterprise Application Development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">API Development & Integration</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Legacy System Modernization</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Quality Assurance & Testing</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Cloud Infrastructure -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-cloud-line ri-2x text-secondary"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Cloud Infrastructure</h2>
+<p class="text-gray-600 mb-6">Scalable, secure, and reliable cloud solutions that optimize performance and reduce operational costs. Our services include:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cloud Migration & Strategy</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Infrastructure as Code (IaC)</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cloud Security & Compliance</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">24/7 Monitoring & Support</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- AI & Machine Learning -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-ai-generate ri-2x text-purple-600"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">AI & Machine Learning</h2>
+<p class="text-gray-600 mb-6">Advanced AI solutions that unlock insights, automate processes, and create intelligent applications. We specialize in:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Predictive Analytics</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Natural Language Processing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Computer Vision Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">ML Model Development & Training</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Data Analytics -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-database-2-line ri-2x text-orange-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Data Analytics</h2>
+<p class="text-gray-600 mb-6">Transform raw data into actionable insights that drive strategic decision-making and business growth. Our offerings include:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Business Intelligence Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Big Data Processing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Data Visualization</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Real-time Analytics</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Cybersecurity -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-shield-check-line ri-2x text-red-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Cybersecurity</h2>
+<p class="text-gray-600 mb-6">Comprehensive security solutions that protect your digital assets, data, and infrastructure from threats. We provide:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Security Assessment & Auditing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Threat Detection & Response</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Security Information & Event Management</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Compliance & Risk Management</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Mobile App Development -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-smartphone-line ri-2x text-pink-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Mobile App Development</h2>
+<p class="text-gray-600 mb-6">Native and cross-platform mobile applications that deliver exceptional user experiences across devices. We excel in:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">iOS & Android Development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cross-platform Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">UI/UX Design</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">App Maintenance & Support</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose LumosTech</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">We combine technical expertise, industry knowledge, and a client-centric approach to deliver exceptional results.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-team-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Expert Team</h3>
+<p class="text-gray-600">Highly skilled professionals with deep technical expertise and industry experience.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-customer-service-2-line ri-xl text-secondary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
+<p class="text-gray-600">Round-the-clock technical support and maintenance for your peace of mind.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-rocket-line ri-xl text-purple-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Fast Delivery</h3>
+<p class="text-gray-600">Agile development methodology ensuring quick turnaround and regular updates.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-shield-star-line ri-xl text-orange-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Assured</h3>
+<p class="text-gray-600">Rigorous testing and quality assurance processes for reliable solutions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary bg-opacity-10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Business?</h2>
+<p class="text-lg text-gray-700 mb-8">Let's discuss how our technology solutions can help you achieve your business goals and drive innovation.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Schedule a Consultation</button>
+<button class="bg-white text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Contact Sales</button>
+</div>
+</div>
+</div>
+</section>
+<section class="hero-section w-full relative section-container">
+<div class="container mx-auto px-4 py-24 md:py-32 w-full section-content">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Illuminating Your Digital Future</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8">We transform businesses through innovative technology solutions that drive growth, efficiency, and competitive advantage.</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Get Started</button>
+<a href="https://readdy.ai/home/1916d5e2-dbdf-4d80-8308-ef5ac2a645f5/6349a4cd-9cf4-4dc9-8588-3548a1ee9fba" data-readdy="true" class="inline-block bg-white text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Overview -->
+<section class="py-16 md:py-24 bg-white section-container">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">We provide end-to-end technology solutions that help businesses innovate, optimize, and grow in the digital landscape.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-code-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Custom Software Development</h3>
+<p class="text-gray-600 mb-6">Tailored software solutions designed to address your unique business challenges and requirements.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-cloud-line ri-xl text-secondary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Cloud Infrastructure</h3>
+<p class="text-gray-600 mb-6">Scalable, secure, and reliable cloud solutions that optimize performance and reduce operational costs.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-ai-generate ri-xl text-purple-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">AI & Machine Learning</h3>
+<p class="text-gray-600 mb-6">Advanced AI solutions that unlock insights, automate processes, and create intelligent applications.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-database-2-line ri-xl text-orange-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Data Analytics</h3>
+<p class="text-gray-600 mb-6">Transform raw data into actionable insights that drive strategic decision-making and business growth.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-shield-check-line ri-xl text-red-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Cybersecurity</h3>
+<p class="text-gray-600 mb-6">Comprehensive security solutions that protect your digital assets, data, and infrastructure from threats.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+<div class="w-14 h-14 bg-pink-100 rounded-lg flex items-center justify-center mb-6">
+<i class="ri-smartphone-line ri-xl text-pink-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Mobile App Development</h3>
+<p class="text-gray-600 mb-6">Native and cross-platform mobile applications that deliver exceptional user experiences across devices.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies -->
+<section class="py-16 md:py-24 bg-gray-50 section-container">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Case Studies</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Explore how we've helped organizations across industries achieve their digital transformation goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20image%20showing%20a%20modern%20financial%20dashboard%20interface%20with%20charts%2C%20graphs%2C%20and%20financial%20data%20visualization.%20The%20image%20should%20have%20a%20clean%2C%20corporate%20aesthetic%20with%20blue%20color%20accents.%20It%20should%20look%20like%20a%20sophisticated%20fintech%20application%20used%20by%20banking%20professionals.&width=600&height=400&seq=case1&orientation=landscape" alt="Financial Services Case Study" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Financial Services</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Global Bank Digital Transformation</h3>
+<p class="text-gray-600 mb-4">Modernized core banking systems and implemented AI-driven fraud detection, resulting in 35% operational cost reduction.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+View Case Study
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%20healthcare%20technology%20image%20showing%20a%20medical%20professional%20using%20a%20tablet%20with%20patient%20health%20data.%20The%20interface%20should%20display%20health%20metrics%2C%20patient%20records%2C%20and%20medical%20imaging.%20The%20scene%20should%20have%20a%20clean%2C%20clinical%20environment%20with%20subtle%20blue%20and%20white%20tones%2C%20representing%20a%20digital%20healthcare%20solution.&width=600&height=400&seq=case2&orientation=landscape" alt="Healthcare Case Study" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Healthcare</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Integrated Healthcare Platform</h3>
+<p class="text-gray-600 mb-4">Developed a unified patient care platform that improved care coordination by 42% and reduced administrative tasks by 28%.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+View Case Study
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20sophisticated%20e-commerce%20technology%20image%20showing%20a%20modern%20online%20shopping%20platform%20with%20product%20displays%2C%20shopping%20cart%20functionality%2C%20and%20payment%20processing.%20The%20interface%20should%20look%20clean%20and%20user-friendly%20with%20a%20professional%20design%2C%20showcasing%20digital%20retail%20technology%20in%20action.&width=600&height=400&seq=case3&orientation=landscape" alt="Retail Case Study" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">Retail</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Omnichannel Retail Experience</h3>
+<p class="text-gray-600 mb-4">Created a seamless shopping experience across digital and physical channels, increasing customer retention by 47%.</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+View Case Study
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-block bg-white text-primary border border-primary px-8 py-3 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap">View All Case Studies</a>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-16 md:py-24 bg-white section-container">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from organizations that have transformed their operations with our technology solutions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-gray-700 mb-6">"LumosTech transformed our outdated systems into a modern, efficient platform. Their team's expertise and dedication to our success exceeded all expectations."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20woman%20with%20short%20brown%20hair%20wearing%20business%20attire%2C%20looking%20confident%20and%20approachable%20against%20a%20neutral%20background.%20The%20image%20should%20be%20high%20quality%20and%20suitable%20for%20a%20corporate%20testimonial.&width=100&height=100&seq=test1&orientation=squarish" alt="Emily Richardson" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Emily Richardson</h4>
+<p class="text-sm text-gray-600">CTO, Global Financial Services</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-gray-700 mb-6">"The AI solution developed by LumosTech has revolutionized our data analysis capabilities. We're now making faster, more informed decisions based on real-time insights."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Asian%20man%20in%20his%2040s%20wearing%20a%20business%20suit%2C%20with%20glasses%20and%20a%20confident%20smile%2C%20against%20a%20neutral%20background.%20The%20image%20should%20be%20high%20quality%20and%20suitable%20for%20a%20corporate%20testimonial.&width=100&height=100&seq=test2&orientation=squarish" alt="David Chen" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">David Chen</h4>
+<p class="text-sm text-gray-600">Director of Innovation, TechCorp</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 p-8 rounded-lg">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-gray-700 mb-6">"Working with LumosTech has been a game-changer for our healthcare organization. Their custom software has streamlined our operations and improved patient care significantly."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20African%20American%20woman%20in%20her%2030s%20with%20natural%20hair%2C%20wearing%20professional%20medical%20attire%2C%20looking%20confident%20and%20friendly%20against%20a%20neutral%20background.%20The%20image%20should%20be%20high%20quality%20and%20suitable%20for%20a%20corporate%20testimonial.&width=100&height=100&seq=test3&orientation=squarish" alt="Dr. Sarah Johnson" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Dr. Sarah Johnson</h4>
+<p class="text-sm text-gray-600">Chief Medical Officer, HealthFirst</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Clients -->
+<section class="py-12 md:py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-10">
+<h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Trusted by Leading Organizations</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-microsoft-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Microsoft</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-amazon-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Amazon</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-google-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Google</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-netflix-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Netflix</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-spotify-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Spotify</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-gray-400">
+<i class="ri-apple-fill ri-2x"></i>
+</div>
+<span class="mt-2 text-gray-600 font-medium">Apple</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="py-16 md:py-24 bg-primary bg-opacity-10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Business?</h2>
+<p class="text-lg text-gray-700 mb-8">Let's discuss how our technology solutions can help you achieve your business goals and drive innovation.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Schedule a Consultation</button>
+<button class="bg-white text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Explore Solutions</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section class="py-16 md:py-24 bg-white section-container">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Insights</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Stay updated with the latest trends, insights, and news from the world of technology and digital transformation.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20image%20illustrating%20artificial%20intelligence%20and%20machine%20learning%20concepts%20with%20neural%20networks%2C%20data%20visualization%2C%20and%20futuristic%20elements.%20The%20image%20should%20have%20a%20clean%2C%20high-tech%20aesthetic%20with%20blue%20color%20accents%2C%20suitable%20for%20a%20technology%20blog%20post%20about%20AI%20trends.&width=600&height=400&seq=blog1&orientation=landscape" alt="AI Trends" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded mr-2">AI</span>
+<span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Technology</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">5 AI Trends Reshaping Business in 2025</h3>
+<p class="text-gray-600 mb-4">Explore how artificial intelligence is transforming business operations and creating new opportunities for innovation and growth.</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">June 2, 2025</span>
+<a href="#" class="text-primary font-medium hover:underline">Read More</a>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20image%20showing%20cybersecurity%20concepts%20with%20digital%20locks%2C%20shields%2C%20and%20data%20protection%20visualization.%20The%20image%20should%20have%20a%20modern%2C%20technical%20aesthetic%20with%20blue%20and%20dark%20tones%2C%20suitable%20for%20a%20technology%20blog%20post%20about%20cybersecurity%20strategies.&width=600&height=400&seq=blog2&orientation=landscape" alt="Cybersecurity Strategies" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded mr-2">Security</span>
+<span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Enterprise</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Essential Cybersecurity Strategies for the Modern Enterprise</h3>
+<p class="text-gray-600 mb-4">Learn about the critical security measures organizations must implement to protect their digital assets in today's threat landscape.</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">May 28, 2025</span>
+<a href="#" class="text-primary font-medium hover:underline">Read More</a>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20image%20illustrating%20cloud%20computing%20concepts%20with%20servers%2C%20data%20centers%2C%20and%20cloud%20connectivity.%20The%20image%20should%20have%20a%20clean%2C%20modern%20aesthetic%20with%20blue%20and%20white%20tones%2C%20suitable%20for%20a%20technology%20blog%20post%20about%20cloud%20migration%20strategies.&width=600&height=400&seq=blog3&orientation=landscape" alt="Cloud Migration" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded mr-2">Cloud</span>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Strategy</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Migration: A Strategic Approach for Business Success</h3>
+<p class="text-gray-600 mb-4">Discover the key considerations and best practices for a successful cloud migration that maximizes ROI and minimizes disruption.</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">May 15, 2025</span>
+<a href="#" class="text-primary font-medium hover:underline">Read More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-block bg-white text-primary border border-primary px-8 py-3 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap">View All Articles</a>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 md:py-24 bg-gray-50 section-container">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Stay Updated</h2>
+<p class="text-lg text-gray-600 mb-8">Subscribe to our newsletter for the latest insights, trends, and updates in technology and digital transformation.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+<input type="email" placeholder="Enter your email" class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 text-gray-700">
+<button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Subscribe</button>
+</form>
+<p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-400 mb-6">Transforming businesses through innovative technology solutions that drive growth, efficiency, and competitive advantage.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Company</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Software Development</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cloud Infrastructure</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Data Analytics</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cybersecurity</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-map-pin-line mr-3 mt-1"></i>
+<span class="text-gray-400">123 Innovation Drive, Tech Park, San Francisco, CA 94107</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-3"></i>
+<span class="text-gray-400">+1 (415) 555-1234</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-3"></i>
+<span class="text-gray-400">info@lumostech.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 mb-4 md:mb-0">© 2025 LumosTech. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Toggle icon between menu and close
+const icon = mobileMenuButton.querySelector('i');
+if (icon.classList.contains('ri-menu-line')) {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+} else {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+}
+});
+});
+</script>
+</body>
+</html>

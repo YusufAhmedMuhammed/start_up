@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LumosTech - Our Services</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+main {
+flex: 1;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #3b82f6;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 1.25rem;
+height: 1.25rem;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+background-color: white;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #3b82f6;
+border-color: #3b82f6;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 3rem;
+height: 1.5rem;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 1.1rem;
+width: 1.1rem;
+left: 0.2rem;
+bottom: 0.2rem;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3b82f6;
+}
+input:checked + .slider:before {
+transform: translateX(1.5rem);
+}
+</style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-gray-900 font-medium hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">About</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Services</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Case Studies</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Blog</a>
+<a href="#" class="text-gray-500 font-medium hover:text-primary transition-colors">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="hidden md:block bg-white text-primary border border-primary px-5 py-2 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Log In</button>
+<button class="bg-primary text-white px-5 py-2 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Get Started</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full hidden" id="mobile-menu">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+<a href="#" class="text-gray-900 font-medium py-2 hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">About</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Services</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Case Studies</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Blog</a>
+<a href="#" class="text-gray-500 font-medium py-2 hover:text-primary transition-colors">Contact</a>
+<button class="bg-white text-primary border border-primary px-5 py-2 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap w-full">Log In</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Services Hero Section -->
+<section class="bg-primary bg-opacity-5 py-20 md:py-28">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Technology Services</h1>
+<p class="text-lg md:text-xl text-gray-700">Comprehensive technology solutions tailored to drive your business forward. We combine expertise, innovation, and industry best practices to deliver exceptional results.</p>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Custom Software Development -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-code-line ri-2x text-primary"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Custom Software Development</h2>
+<p class="text-gray-600 mb-6">Tailored software solutions designed to address your unique business challenges and requirements. Our expert team delivers:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Enterprise Application Development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">API Development & Integration</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Legacy System Modernization</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Quality Assurance & Testing</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Cloud Infrastructure -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-cloud-line ri-2x text-secondary"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Cloud Infrastructure</h2>
+<p class="text-gray-600 mb-6">Scalable, secure, and reliable cloud solutions that optimize performance and reduce operational costs. Our services include:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cloud Migration & Strategy</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Infrastructure as Code (IaC)</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cloud Security & Compliance</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">24/7 Monitoring & Support</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- AI & Machine Learning -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-ai-generate ri-2x text-purple-600"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">AI & Machine Learning</h2>
+<p class="text-gray-600 mb-6">Advanced AI solutions that unlock insights, automate processes, and create intelligent applications. We specialize in:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Predictive Analytics</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Natural Language Processing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Computer Vision Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">ML Model Development & Training</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Data Analytics -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-database-2-line ri-2x text-orange-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Data Analytics</h2>
+<p class="text-gray-600 mb-6">Transform raw data into actionable insights that drive strategic decision-making and business growth. Our offerings include:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Business Intelligence Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Big Data Processing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Data Visualization</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Real-time Analytics</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Cybersecurity -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-shield-check-line ri-2x text-red-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Cybersecurity</h2>
+<p class="text-gray-600 mb-6">Comprehensive security solutions that protect your digital assets, data, and infrastructure from threats. We provide:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Security Assessment & Auditing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Threat Detection & Response</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Security Information & Event Management</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Compliance & Risk Management</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Mobile App Development -->
+<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+<div class="w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-smartphone-line ri-2x text-pink-500"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Mobile App Development</h2>
+<p class="text-gray-600 mb-6">Native and cross-platform mobile applications that deliver exceptional user experiences across devices. We excel in:</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">iOS & Android Development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">Cross-platform Solutions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">UI/UX Design</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-3"></i>
+<span class="text-gray-600">App Maintenance & Support</span>
+</li>
+</ul>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose LumosTech</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">We combine technical expertise, industry knowledge, and a client-centric approach to deliver exceptional results.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-team-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Expert Team</h3>
+<p class="text-gray-600">Highly skilled professionals with deep technical expertise and industry experience.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-customer-service-2-line ri-xl text-secondary"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
+<p class="text-gray-600">Round-the-clock technical support and maintenance for your peace of mind.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-rocket-line ri-xl text-purple-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Fast Delivery</h3>
+<p class="text-gray-600">Agile development methodology ensuring quick turnaround and regular updates.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-shield-star-line ri-xl text-orange-500"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Assured</h3>
+<p class="text-gray-600">Rigorous testing and quality assurance processes for reliable solutions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary bg-opacity-10">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Business?</h2>
+<p class="text-lg text-gray-700 mb-8">Let's discuss how our technology solutions can help you achieve your business goals and drive innovation.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Schedule a Consultation</button>
+<button class="bg-white text-gray-800 border border-gray-300 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Contact Sales</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-400 mb-6">Transforming businesses through innovative technology solutions that drive growth, efficiency, and competitive advantage.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Company</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Software Development</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cloud Infrastructure</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Data Analytics</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cybersecurity</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-map-pin-line mr-3 mt-1"></i>
+<span class="text-gray-400">123 Innovation Drive, Tech Park, San Francisco, CA 94107</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-3"></i>
+<span class="text-gray-400">+1 (415) 555-1234</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-3"></i>
+<span class="text-gray-400">info@lumostech.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 mb-4 md:mb-0">© 2025 LumosTech. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-500 hover:text-white transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Toggle icon between menu and close
+const icon = mobileMenuButton.querySelector('i');
+if (icon.classList.contains('ri-menu-line')) {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+} else {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+}
+});
+});
+</script>
+</body>
+</html>
